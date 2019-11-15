@@ -155,7 +155,7 @@ function zoospas_form_action(){
  * Print pets list of type
  */
 add_action('pre_get_posts', 'zoospas_query_offset', 1 );
-function myprefix_query_offset(&$query) {
+function zoospas_query_offset(&$query) {
     if ( ! $query->is_posts_page ) {
         return;
     }

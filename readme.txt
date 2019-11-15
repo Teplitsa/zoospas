@@ -5,7 +5,7 @@ Tags: zoospas, pets
 Requires at least: 4.9.0
 Tested up to: 5.3
 Requires PHP: 5.6
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 License: GPLv2 or later
 License URI: 
  
