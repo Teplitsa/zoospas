@@ -55,3 +55,5 @@ function zoospas_register_post_types(){
 }
 
 
+function zs_display_options_group($params) {
+}

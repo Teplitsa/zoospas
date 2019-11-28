@@ -165,9 +165,9 @@ function zoospas_query_offset(&$query) {
 
 add_shortcode('zs_pets_list', 'zs_print_pets_list_of_type_action');
 function zs_print_pets_list_of_type_action($attr, $content = null){
-    $type = $attr['type'];
+    $type = !empty($attr['type']) ? $attr['type'] : null;
     $calc = get_option( 'posts_per_page' );
-    $paged = $GLOBALS['wp_query']->query_vars['paged'];
+    $paged = !empty($GLOBALS['wp_query']->query_vars['paged']) ? $GLOBALS['wp_query']->query_vars['paged'] : 0;
     if($paged){
         $offset = $calc * ($paged - 1);
     } else {
@@ -177,15 +177,20 @@ function zs_print_pets_list_of_type_action($attr, $content = null){
 
         'post_type'=>'zs_pets',
         'offset'=>$offset,
-        'meta_query' => [
+        
+    ];
+    
+    if($type) {
+        $argmts['meta_query'] = [
             [
                 'relation '=>'OR',
                 'key'=>'_zs_pet_type',
                 'value'=>$type,
                 'compare'=>'LIKE',
             ]
-        ]
-    ];
+        ];
+    }
+    
     $query = new WP_Query($argmts);
 
 

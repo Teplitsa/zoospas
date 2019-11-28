@@ -16,11 +16,11 @@ function zs_sp_content_strip_buttons(){
 }
 add_action('zs_sp_thumbnail', 'zs_sp_thumbnail');
 function zs_sp_thumbnail(){
-    echo get_the_post_thumbnail( $id, array('410', '410'), null );
+    echo get_the_post_thumbnail( null, array('410', '410'), null );
 }
 add_action('zs_sp_thumbnail_url', 'zs_sp_thumbnail_url');
 function zs_sp_thumbnail_url(){
-    echo get_the_post_thumbnail_url( $id, array('410', '410') );
+    echo get_the_post_thumbnail_url( null, array('410', '410') );
 }
 add_action('zs_p_cardmeta', 'zs_p_cardmeta');
 function zs_p_cardmeta(){
